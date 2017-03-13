@@ -27,6 +27,8 @@
 		2A45B97D1D70426A00077248 /* ImageCutTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45B97C1D70426A00077248 /* ImageCutTool.m */; };
 		2A45B9901D704AF200077248 /* UIImage+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45B98D1D704AF200077248 /* UIImage+Helper.m */; };
 		2A45B9911D704AF200077248 /* UIViewAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A45B98F1D704AF200077248 /* UIViewAdditions.m */; };
+		2A49CD771E764956001F804E /* PHCommentStarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A49CD761E764956001F804E /* PHCommentStarView.m */; };
+		2A49CD7B1E76A567001F804E /* PHMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A49CD7A1E76A567001F804E /* PHMap.m */; };
 		2A4A834B1E1246030079740F /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4A831D1E1246030079740F /* MJRefreshAutoFooter.m */; };
 		2A4A834C1E1246030079740F /* MJRefreshBackFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4A831F1E1246030079740F /* MJRefreshBackFooter.m */; };
 		2A4A834D1E1246030079740F /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A4A83211E1246030079740F /* MJRefreshComponent.m */; };
@@ -80,6 +82,7 @@
 		2A9EC0471DEED72A005D1855 /* PHCarouselFigure.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A9EC0461DEED72A005D1855 /* PHCarouselFigure.m */; };
 		2AAA116E1DF5444000B0D886 /* PHDownLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AAA116D1DF5444000B0D886 /* PHDownLoader.m */; };
 		2AB68FAF1D5C3CE100C98438 /* SuperViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AB68FAE1D5C3CE100C98438 /* SuperViewController.m */; };
+		2AE1524C1E6956C2009F6D26 /* PHPopBox.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE1524B1E6956C2009F6D26 /* PHPopBox.m */; };
 		2AE233941E4D6466002079F5 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2AE233931E4D6466002079F5 /* icon.png */; };
 		2AE233981E4D66C1002079F5 /* YanButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AE233971E4D66C1002079F5 /* YanButton.m */; };
 		2AFE01341E0A1577005AF99B /* RiLiVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2AFE01331E0A1577005AF99B /* RiLiVC.m */; };
@@ -132,6 +135,10 @@
 		2A45B98D1D704AF200077248 /* UIImage+Helper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Helper.m"; sourceTree = "<group>"; };
 		2A45B98E1D704AF200077248 /* UIViewAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewAdditions.h; sourceTree = "<group>"; };
 		2A45B98F1D704AF200077248 /* UIViewAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewAdditions.m; sourceTree = "<group>"; };
+		2A49CD751E764956001F804E /* PHCommentStarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHCommentStarView.h; sourceTree = "<group>"; };
+		2A49CD761E764956001F804E /* PHCommentStarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHCommentStarView.m; sourceTree = "<group>"; };
+		2A49CD791E76A567001F804E /* PHMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHMap.h; sourceTree = "<group>"; };
+		2A49CD7A1E76A567001F804E /* PHMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHMap.m; sourceTree = "<group>"; };
 		2A4A831C1E1246030079740F /* MJRefreshAutoFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshAutoFooter.h; sourceTree = "<group>"; };
 		2A4A831D1E1246030079740F /* MJRefreshAutoFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJRefreshAutoFooter.m; sourceTree = "<group>"; };
 		2A4A831E1E1246030079740F /* MJRefreshBackFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJRefreshBackFooter.h; sourceTree = "<group>"; };
@@ -230,6 +237,8 @@
 		2AAA116D1DF5444000B0D886 /* PHDownLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHDownLoader.m; sourceTree = "<group>"; };
 		2AB68FAD1D5C3CE100C98438 /* SuperViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperViewController.h; sourceTree = "<group>"; };
 		2AB68FAE1D5C3CE100C98438 /* SuperViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperViewController.m; sourceTree = "<group>"; };
+		2AE1524A1E6956C2009F6D26 /* PHPopBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PHPopBox.h; sourceTree = "<group>"; };
+		2AE1524B1E6956C2009F6D26 /* PHPopBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PHPopBox.m; sourceTree = "<group>"; };
 		2AE233931E4D6466002079F5 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		2AE233961E4D66C1002079F5 /* YanButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YanButton.h; sourceTree = "<group>"; };
 		2AE233971E4D66C1002079F5 /* YanButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YanButton.m; sourceTree = "<group>"; };
@@ -256,6 +265,9 @@
 		2A0CDBD01D6EC9AD0012D04A /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				2A49CD781E76A4AA001F804E /* PHMap */,
+				2A49CD711E764907001F804E /* PHCommentStarView */,
+				2AE152491E6956C2009F6D26 /* PHPopBox */,
 				2A4D37A51E5FBD940094729D /* PHSocketManager */,
 				2AE233951E4D66C1002079F5 /* PHYanBtn */,
 				2A4A913A1E13C0F10079740F /* PHTabbar */,
@@ -365,6 +377,24 @@
 				2A4A91361E13A69A0079740F /* common.js */,
 			);
 			path = HTML;
+			sourceTree = "<group>";
+		};
+		2A49CD711E764907001F804E /* PHCommentStarView */ = {
+			isa = PBXGroup;
+			children = (
+				2A49CD751E764956001F804E /* PHCommentStarView.h */,
+				2A49CD761E764956001F804E /* PHCommentStarView.m */,
+			);
+			path = PHCommentStarView;
+			sourceTree = "<group>";
+		};
+		2A49CD781E76A4AA001F804E /* PHMap */ = {
+			isa = PBXGroup;
+			children = (
+				2A49CD791E76A567001F804E /* PHMap.h */,
+				2A49CD7A1E76A567001F804E /* PHMap.m */,
+			);
+			path = PHMap;
 			sourceTree = "<group>";
 		};
 		2A4A831A1E1246030079740F /* MJRefresh */ = {
@@ -671,6 +701,15 @@
 			name = DownLoader;
 			sourceTree = "<group>";
 		};
+		2AE152491E6956C2009F6D26 /* PHPopBox */ = {
+			isa = PBXGroup;
+			children = (
+				2AE1524A1E6956C2009F6D26 /* PHPopBox.h */,
+				2AE1524B1E6956C2009F6D26 /* PHPopBox.m */,
+			);
+			path = PHPopBox;
+			sourceTree = "<group>";
+		};
 		2AE233921E4D6466002079F5 /* imgs */ = {
 			isa = PBXGroup;
 			children = (
@@ -791,6 +830,7 @@
 			files = (
 				2AB68FAF1D5C3CE100C98438 /* SuperViewController.m in Sources */,
 				2A4A83501E1246030079740F /* MJRefreshAutoGifFooter.m in Sources */,
+				2AE1524C1E6956C2009F6D26 /* PHPopBox.m in Sources */,
 				2A6FC3D51D2DF1950006CBE2 /* ViewController.m in Sources */,
 				2A610BE41D71B4F70098B622 /* CellView_S.swift in Sources */,
 				2A6E74321D73EA060038A063 /* UIView+Helper_S.swift in Sources */,
@@ -824,6 +864,7 @@
 				2A4A835D1E1246030079740F /* UIScrollView+MJRefresh.m in Sources */,
 				2AFE01391E0A200E005AF99B /* Lunbo.m in Sources */,
 				2A6804AD1D75216E007BEC91 /* Define.swift in Sources */,
+				2A49CD7B1E76A567001F804E /* PHMap.m in Sources */,
 				2A62EC761DF6C16000C05508 /* HSSessionModel.m in Sources */,
 				2A4374F41D61AEAF00E02202 /* MASConstraintMaker.m in Sources */,
 				2A0CDBDC1D6EC9AD0012D04A /* PHCalendarContentVC.m in Sources */,
@@ -846,6 +887,7 @@
 				2A4A83511E1246030079740F /* MJRefreshAutoNormalFooter.m in Sources */,
 				2A4374F61D61AEAF00E02202 /* MASViewAttribute.m in Sources */,
 				2A4A834F1E1246030079740F /* MJRefreshHeader.m in Sources */,
+				2A49CD771E764956001F804E /* PHCommentStarView.m in Sources */,
 				2A7836F11E5A76E400A33B06 /* ScrollCalendar.m in Sources */,
 				2A4A83581E1246030079740F /* MJRefreshStateHeader.m in Sources */,
 				2AE233981E4D66C1002079F5 /* YanButton.m in Sources */,

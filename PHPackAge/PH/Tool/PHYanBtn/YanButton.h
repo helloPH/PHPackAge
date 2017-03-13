@@ -11,7 +11,4 @@
 @interface YanButton : UIButton
 +(YanButton *)insButtonWithFrame:(CGRect )frame title:(NSString *)title time:(NSInteger)time;
 -(void)startTimer;
-
-
-
 @end

@@ -7,9 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "PHPopBox.h"
+#import "PHTabbar.h"
+#import "PHCommentStarView.h"
 
-
-@interface ViewController ()<NSStreamDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface ViewController ()<NSStreamDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
 NSInputStream *_inputStream;//对应输入流
 NSOutputStream *_outputStream;//对应输出流
@@ -17,6 +19,10 @@ NSOutputStream *_outputStream;//对应输出流
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *inputViewConstraint;
 @property (strong, nonatomic)  UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *chatMsgs;//聊天消息数组
+
+@property (nonatomic,assign) NSInteger currentIndex;
+@property (nonatomic,strong) PHTabbar * bar;
+
 @end
 
 @implementation ViewController
@@ -31,8 +37,32 @@ NSOutputStream *_outputStream;//对应输出流
      [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kbFrmWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     self.navigationController.navigationBar.hidden=YES;
-    [self newView];
+    [self newView1];
     
+}
+-(void)newView1{
+    PHCommentStarView * starView =[PHCommentStarView insWithMaxRank:10 normalImg:nil heightImg:nil commentStarType:commentStarTypeGet];
+    
+    starView.top=100;
+    
+    [self.view addSubview:starView];
+}
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    // 前翻 还是 后翻
+    CGFloat currentOfset = scrollView.width*_currentIndex;
+    float percent = (scrollView.contentOffset.x-currentOfset)/scrollView.width;
+    NSLog(@"%.2f",percent);
+    
+    [_bar changeUnderLineOffSet:percent];
+    
+}
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    _currentIndex=scrollView.contentOffset.x/scrollView.width;
+    [_bar setIndex:_currentIndex];
+}
+
+-(void)reshData{
+      [PHPopBox startLoadDataWithTitle:@"正在上传"];
 }
 -(void)newView{
 
@@ -82,75 +112,75 @@ NSOutputStream *_outputStream;//对应输出流
     
     
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    if (scrollView.tag>=500 && scrollView.tag<600 ) {
-        
-
-
-        
-        
-        if (scrollView.contentOffset.y < 0) {
-            UIScrollView * mainScroll = [self.view viewWithTag:100];
-            UIButton * btn      = [self.view viewWithTag:101];
-            UIScrollView * bScroll =[self.view viewWithTag:102];
-            bScroll.scrollEnabled=NO;
-           scrollView.scrollEnabled=NO;
-            
-            
-        }
-    }
-       UIScrollView * mainScroll = [self.view viewWithTag:100];
-        UIButton * btn      = [self.view viewWithTag:101];
-    NSLog(@"%f %f",mainScroll.contentOffset.y,btn.top);
-    
-}
--(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
-    UIScrollView * mainScroll = [self.view viewWithTag:100];
-    UIButton * btn      = [self.view viewWithTag:101];
-    
-    
-    if (mainScroll.contentOffset.y>btn.top-Vheight && mainScroll.contentOffset.y < btn.top-Vheight/2) {
-        [mainScroll setContentOffset:CGPointMake(0, btn.top-Vheight) animated:YES];
-    }
-    
-    if (mainScroll.contentOffset.y>=btn.top-Vheight/2 && mainScroll.contentOffset.y < btn.top ) {
-        [mainScroll setContentOffset:CGPointMake(0, btn.top) animated:YES];
-    }
-    
-    if (mainScroll.contentOffset.y>=btn.top) {
-        UIScrollView * bScroll =[self.view viewWithTag:102];
-        bScroll.scrollEnabled=YES;
-        for (UIScrollView * contentScroll in bScroll.subviews) {
-            if ([contentScroll isKindOfClass:[UIScrollView class]]) {
-                contentScroll.scrollEnabled=YES;
-            }
-        }
-    }
-}
--(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
-    UIScrollView * mainScroll = [self.view viewWithTag:100];
-    UIButton * btn      = [self.view viewWithTag:101];
-    
-    
-    if (mainScroll.contentOffset.y>btn.top-Vheight && mainScroll.contentOffset.y < btn.top-Vheight/2) {
-        [mainScroll setContentOffset:CGPointMake(0, btn.top-Vheight) animated:YES];
-    }
-    
-    if (mainScroll.contentOffset.y>=btn.top-Vheight/2 && mainScroll.contentOffset.y < btn.top ) {
-        [mainScroll setContentOffset:CGPointMake(0, btn.top) animated:YES];
-    }
-    
-    if (mainScroll.contentOffset.y>=btn.top) {
-        UIScrollView * bScroll =[self.view viewWithTag:102];
-        bScroll.scrollEnabled=YES;
-        for (UIScrollView * contentScroll in bScroll.subviews) {
-            if ([contentScroll isKindOfClass:[UIScrollView class]]) {
-                contentScroll.scrollEnabled=YES;
-            }
-        }
-    }
-}
-
+//-(void)scrollViewDidScroll:(UIScrollView *)scrollView{
+//    if (scrollView.tag>=500 && scrollView.tag<600 ) {
+//        
+//
+//
+//        
+//        
+//        if (scrollView.contentOffset.y < 0) {
+//            UIScrollView * mainScroll = [self.view viewWithTag:100];
+//            UIButton * btn      = [self.view viewWithTag:101];
+//            UIScrollView * bScroll =[self.view viewWithTag:102];
+//            bScroll.scrollEnabled=NO;
+//           scrollView.scrollEnabled=NO;
+//            
+//            
+//        }
+//    }
+//       UIScrollView * mainScroll = [self.view viewWithTag:100];
+//        UIButton * btn      = [self.view viewWithTag:101];
+//    NSLog(@"%f %f",mainScroll.contentOffset.y,btn.top);
+//    
+//}
+//-(void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset{
+//    UIScrollView * mainScroll = [self.view viewWithTag:100];
+//    UIButton * btn      = [self.view viewWithTag:101];
+//    
+//    
+//    if (mainScroll.contentOffset.y>btn.top-Vheight && mainScroll.contentOffset.y < btn.top-Vheight/2) {
+//        [mainScroll setContentOffset:CGPointMake(0, btn.top-Vheight) animated:YES];
+//    }
+//    
+//    if (mainScroll.contentOffset.y>=btn.top-Vheight/2 && mainScroll.contentOffset.y < btn.top ) {
+//        [mainScroll setContentOffset:CGPointMake(0, btn.top) animated:YES];
+//    }
+//    
+//    if (mainScroll.contentOffset.y>=btn.top) {
+//        UIScrollView * bScroll =[self.view viewWithTag:102];
+//        bScroll.scrollEnabled=YES;
+//        for (UIScrollView * contentScroll in bScroll.subviews) {
+//            if ([contentScroll isKindOfClass:[UIScrollView class]]) {
+//                contentScroll.scrollEnabled=YES;
+//            }
+//        }
+//    }
+//}
+//-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+//    UIScrollView * mainScroll = [self.view viewWithTag:100];
+//    UIButton * btn      = [self.view viewWithTag:101];
+//    
+//    
+//    if (mainScroll.contentOffset.y>btn.top-Vheight && mainScroll.contentOffset.y < btn.top-Vheight/2) {
+//        [mainScroll setContentOffset:CGPointMake(0, btn.top-Vheight) animated:YES];
+//    }
+//    
+//    if (mainScroll.contentOffset.y>=btn.top-Vheight/2 && mainScroll.contentOffset.y < btn.top ) {
+//        [mainScroll setContentOffset:CGPointMake(0, btn.top) animated:YES];
+//    }
+//    
+//    if (mainScroll.contentOffset.y>=btn.top) {
+//        UIScrollView * bScroll =[self.view viewWithTag:102];
+//        bScroll.scrollEnabled=YES;
+//        for (UIScrollView * contentScroll in bScroll.subviews) {
+//            if ([contentScroll isKindOfClass:[UIScrollView class]]) {
+//                contentScroll.scrollEnabled=YES;
+//            }
+//        }
+//    }
+//}
+//
 - (void)connectToHost:(UIButton *)sender {
     // 1.建立连接
     NSString *host = @"60.205.30.106";

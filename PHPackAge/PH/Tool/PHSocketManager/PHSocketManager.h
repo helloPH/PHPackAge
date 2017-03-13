@@ -9,9 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface PHSocketManager : NSObject
-+(instancetype)share;
--(void)connect;
--(void)disConnect;
--(void)sendMsg:(NSString *)msg;
 
 @end
