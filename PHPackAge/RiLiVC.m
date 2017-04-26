@@ -23,9 +23,16 @@
     // Do any additional setup after loading the view.
 }
 -(void)newView{
+    self.view.backgroundColor=[UIColor blueColor];
+    
     PHCalendar * calender=[PHCalendar new];
-    [self addChildViewController:calender];
-    [self.view addSubview:calender.view];
+    
+    
+//    [self addChildViewController:calender];
+//    [self.view addSubview:calender.view];
+    
+
+    
     
 }
 - (void)didReceiveMemoryWarning {

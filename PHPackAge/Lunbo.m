@@ -22,6 +22,8 @@
 }
 -(void)newView{
     
+    self.view.backgroundColor=[UIColor redColor];
+    
     UIWebView * web=[[UIWebView alloc]initWithFrame:CGRectMake(0, 0, Vwidth, Vheight)];
     [self.view addSubview:web];
     

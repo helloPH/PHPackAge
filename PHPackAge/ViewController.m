@@ -10,7 +10,12 @@
 #import "PHPopBox.h"
 #import "PHTabbar.h"
 #import "PHCommentStarView.h"
+#import "PHCustomTabbarController.h"
+#import "RiLiVC.h"
+#import "Lunbo.h"
+#import "DownLoaderVC.h"
 
+#import "RunTimeHelper.h"
 @interface ViewController ()<NSStreamDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UIScrollViewDelegate>
 {
 NSInputStream *_inputStream;//对应输入流
@@ -34,18 +39,58 @@ NSOutputStream *_outputStream;//对应输出流
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kbFrmWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
-    
-    self.navigationController.navigationBar.hidden=YES;
+//     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(kbFrmWillChange:) name:UIKeyboardWillChangeFrameNotification object:nil];
+//    
+//    self.navigationController.navigationBar.hidden=YES;
     [self newView1];
     
 }
 -(void)newView1{
-    PHCommentStarView * starView =[PHCommentStarView insWithMaxRank:10 normalImg:nil heightImg:nil commentStarType:commentStarTypeGet];
+    PHTabbarButton * btn = [PHTabbarButton insWithController:[RiLiVC new]];
+    [btn setImage:[UIImage imageNamed:@"03"] forState:UIControlStateNormal];
+    [btn setImage:[UIImage imageNamed:@"icon"] forState:UIControlStateSelected];
+    [btn setTitle:@"hello" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+    [btn setTitle:@"放屁" forState:UIControlStateSelected];
     
-    starView.top=100;
     
-    [self.view addSubview:starView];
+    
+    PHTabbarButton * btn1 = [PHTabbarButton insWithController:[Lunbo new]];
+    [btn1 setImage:[UIImage imageNamed:@"03"] forState:UIControlStateNormal];
+    [btn1 setImage:[UIImage imageNamed:@"icon"] forState:UIControlStateSelected];
+    [btn1 setTitle:@"hello" forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn1 setTitleColor:[UIColor blueColor] forState:UIControlStateSelected];
+    [btn1 setTitle:@"放屁" forState:UIControlStateSelected];
+    
+    PHTabbarButton * btn2 = [PHTabbarButton insWithController:[DownLoaderVC new]];
+
+    
+    
+    PHCustomTabbarController * cus = [PHCustomTabbarController insWithButtons:@[btn,btn1]];
+    cus.block=^(NSInteger index){
+        
+    };
+    
+    
+    [[UIApplication sharedApplication].delegate.window setRootViewController:cus];
+    
+
+    
+
+    
+   NSLog(@"%@",[RunTimeHelper getPropertyListFromObj:btn]);
+    
+//    [self addChildViewController:cus];
+//    
+//    [self.view addSubview:cus.tabBar];
+    
+//    PHCommentStarView * starView =[PHCommentStarView insWithMaxRank:10 normalImg:nil heightImg:nil commentStarType:commentStarTypeSet];
+//    
+//    starView.top=100;
+//    
+//    [self.view addSubview:starView];
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     // 前翻 还是 后翻
